@@ -18,7 +18,7 @@ const Template: Story<typeof NFTFullPage> = (args) => {
     strategy={strategy}
   >
     {/* @ts-ignore */}
-    <NFTFullPage {...args} />
+    <NFTFullPage {...args}/>
   </MediaConfiguration>
   );
 };
