@@ -35,10 +35,8 @@ export const MediaObject = ({
   const { getStyles, getString, renderers, style, networkId } =
     useMediaContext();
 
-  // Replace https://ipfs.fleek.co wih https://ipfs.io
-  contentURI = contentURI?.replace(/https:\/\/ipfs.fleek.co/g, "https://ipfs.io") as MediaUriType
-
-  console.log(contentURI)
+  // Replace https://ipfs.fleek.co
+  contentURI = contentURI?.replace(/https:\/\/ipfs.fleek.co/g, "https://ipfs.decentralized-content.com") as MediaUriType
 
   const request: RenderRequest = {
     media: {
