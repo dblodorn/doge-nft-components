@@ -1,5 +1,5 @@
 {
-  "name": "@zoralabs/nft-components",
+  "name": "@derpyvision/doge-nft-components",
   "version": "1.2.0",
   "description": "NFT Media Rendering Components",
   "typings": "dist/index.d.ts",
