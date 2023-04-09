@@ -1,6 +1,6 @@
 import { Fragment, useMemo } from "react";
 import { useNFTContent } from "@zoralabs/nft-hooks";
-
+import { MediaUriType } from "@zoralabs/nft-hooks/dist/types";
 import { useMediaContext } from "../context/useMediaContext";
 import type { RenderRequest } from "../content-components/RendererConfig";
 
@@ -35,6 +35,11 @@ export const MediaObject = ({
   const { getStyles, getString, renderers, style, networkId } =
     useMediaContext();
 
+  // Replace https://ipfs.fleek.co wih https://ipfs.io
+  contentURI = contentURI?.replace(/https:\/\/ipfs.fleek.co/g, "https://ipfs.io") as MediaUriType
+
+  console.log(contentURI)
+
   const request: RenderRequest = {
     media: {
       // from zora content uri
@@ -48,16 +53,17 @@ export const MediaObject = ({
               mediaType.content?.mimeType,
           }
         : undefined,
-      image: metadata?.imageUri
+      /* @ts-ignore */
+      image: contentURI
         ? {
             uri: metadata?.imageUri,
             type: "image/",
           }
         : undefined,
       // from metadata.animation_url
-      animation: metadata?.contentUri
+      animation: contentURI
         ? {
-            uri: metadata?.contentUri,
+            uri: contentURI,
             type: mediaType.content?.mimeType,
           }
         : undefined,

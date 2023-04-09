@@ -24,8 +24,12 @@ export const MediaFull = ({
     error
   } = useContext(NFTDataContext);
 
+  
+
   const getContent = () => {
     if (data && data.metadata) {
+      console.log(data?.media?.large?.uri)
+      console.log(getContentData(data))
       return (
         <MediaObject
           isFullPage={true}
